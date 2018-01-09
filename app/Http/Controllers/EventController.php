@@ -11,7 +11,7 @@ class EventController extends Controller
         $event = Event::with(array('category'))->get();
 		$event = $request->all();
 		
-        return view('events.index',compact('event','user'));
+        return view('events.index',compact('event'));
 	}
 	
     public function create(Category $category){

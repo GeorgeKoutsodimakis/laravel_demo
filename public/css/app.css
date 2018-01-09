@@ -8351,10 +8351,15 @@ button.close {
 }
 
 .card {
-  border: 1px solid grey;
+  border-radius: 1%;
   background-color: cadetblue;
   color: white;
   margin-bottom: 15px;
+}
+
+.card:hover {
+  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .buttons {

@@ -2,7 +2,7 @@
 	<div class="container header"><h2>{{$event->name}}</h2> </div>
 	<hr>
   
-	  <h4><strong>Category </strong>:{{ $event->category_id}}</h4>
+	  <h4><strong>Category </strong>:{{ $event->category->title}}</h4>
 	  <p class="card-text">
 		  <h4><strong>Price </strong>: {{$event->price}}$</h4>
 		  <h4><strong>Where </strong>: {{$event->country}} / {{$event->city}}</h4>
@@ -11,7 +11,7 @@
 	  </p>
 	<hr>
   
-	<h4><strong>Posted by </strong>: {{$event->user_id}}</h4>
+	<h4><strong>Posted by </strong>: {{$event->user->name}}</h4>
   
 	<div class="container footer">
 	<ul class="list-unstyled buttons">

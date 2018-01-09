@@ -32,15 +32,11 @@ class CategoryController extends Controller
         return redirect()->route('category.index');
 	}
 	
-	public function show(Category $category)
+	public function show(Category $category,Request $requet)
     {
         //
-		$category = Category::find($id);
-		$eventCategory = DB::table('events')
-				->groupBy('category_id')
-				->having('category_id',$category)
-				->get();
 
-        return view('categories.show',compact('eventCategory'));
+        $categoryEvents = Category::with('events')->where('category_id',$category)->get();
+        return view('categories.events',compact('category'));
     }
 }
