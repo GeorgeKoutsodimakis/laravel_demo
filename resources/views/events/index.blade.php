@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-<h2>Show all events</h2>
+    <h2>Show all events</h2>
 </div>
 
 

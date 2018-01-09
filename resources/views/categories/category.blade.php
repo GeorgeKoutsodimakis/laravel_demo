@@ -7,7 +7,7 @@
             <div class="col-sm-8"><h3>{{$category->title}}</h3></div>
 
             <div class="col-sm-2">
-                {!! Form::open(['route' => ['category.show',$category],'method'=>'POST']) !!}
+                {!! Form::open(['route' => ['category.show',$category],'method'=>'GET']) !!}
                  <button type="submit" class="btn btn-success">Events</button>
                 {!! Form::close() !!}
             </div>
