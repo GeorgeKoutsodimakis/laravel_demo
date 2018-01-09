@@ -1,0 +1,46 @@
+<?php
+namespace App\Http\Controllers;
+use Illuminate\Http\Request;
+use App\Event;
+use App\Category;
+
+class CategoryController extends Controller
+{
+    public function __Construct(){
+        $this->middleware('auth');
+        $this->category = new Category;
+    }
+    public function index(Category $category){
+        $category = Category::all();
+        return view('categories.index',compact('category'));
+    }
+    public function create(){
+        return view('categories.create');
+    }
+    public function store(Request $request){
+        $this->validate($request,[
+            'title'=>'required|min:3|max:15'
+        ]);
+        $category = Category::create([
+            'user_id'=>auth()->id(),
+            'title' => request('title')
+        ]);
+        return redirect()->route('category.index');
+    }
+    public function destroy(Category $category){
+        $category->delete();
+        return redirect()->route('category.index');
+	}
+	
+	public function show(Category $category)
+    {
+        //
+		$category = Category::find($id);
+		$eventCategory = DB::table('events')
+				->groupBy('category_id')
+				->having('category_id',$category)
+				->get();
+
+        return view('categories.show',compact('eventCategory'));
+    }
+}
